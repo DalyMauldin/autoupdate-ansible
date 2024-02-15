@@ -1,0 +1,6 @@
+- name: Ping Servers to Check
+  hosts: *
+  tasks:
+    
+    - name: Ping
+      ansible.builtin.ping:
