@@ -4,17 +4,16 @@
     - name: Ping
       ansible.builtin.ping:
 
-- name: Update Ubuntu Servers
-  hosts: ubuntu
+- name: Run Updates
+  hosts: ubuntu, proxmox, debian
   become: yes
   tasks:
-    apt:
-      update_cache: yes
-      upgrade: yes
+    - name: Update Ubuntu Servers
+      apt:
+        update_cache: yes
+        upgrade: yes
 
-- name: Update Proxmox Servers
-  hosts: proxmox, debian
-  tasks:
-    apt:
-      update_cache: yes
-      upgrade: yes
+    - name: Update Proxmox Servers
+      apt:
+        update_cache: yes
+        upgrade: yes
