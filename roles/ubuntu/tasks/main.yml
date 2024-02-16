@@ -4,3 +4,6 @@
   apt:
     update_cache: yes
     upgrade: yes
+
+  debug:
+    msg: ansible_facts['hostname'] updated.
