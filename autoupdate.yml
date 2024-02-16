@@ -11,3 +11,8 @@
       when:
         - ansible_facts['os_family'] == "Debian"
         - ansible_facts['distribution'] != "Ubuntu"
+
+- handlers:
+    - name: updated
+      debug:
+        msg: Updated {{ ansible_facts['hostname'].stdout }}
