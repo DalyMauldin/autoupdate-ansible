@@ -1,0 +1,6 @@
+---
+- name: Run Updates
+  become: true
+  apt:
+    update_cache: yes
+    upgrade: yes

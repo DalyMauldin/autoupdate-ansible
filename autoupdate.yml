@@ -1,34 +1,8 @@
-- name: Ping Servers to Check
-  hosts: "*"
-  tasks:
-    - name: Ping
-      ansible.builtin.ping:
-
+---
 - name: Update Ubuntu Servers
   hosts: ubuntu
-  become: yes
-  tasks:
-    - name: Run Updates
-      apt:
-        update_cache: yes
-        upgrade: yes
-      when: ansible_facts['os_family'] == "Debian"
-
-    - name: Check Conditional
-      ansible.builtin.debug:
-        var: ansible_facts
-      when: ansible_facts['distribution'] == "Debian"
-
-- name: Update Proxmox Servers
-  hosts: proxmox
-  tasks:
-    - name: Run Updates
-      apt:
-        update_cache: yes
-        upgrade: yes
-# - name: Print all availble facts
-#   hosts: "*"
-#   tasks:
-#     - name: Print Stats
-#       ansible.builtin.debug:
-#         var: ansible_facts
+  roles:
+    - role: ubuntu
+      when:
+        - ansible_facts['os_family'] == "Debian"
+        - ansible_facts['distribution'] == "Ubuntu"
