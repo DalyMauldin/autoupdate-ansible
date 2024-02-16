@@ -13,8 +13,8 @@
         update_cache: yes
         upgrade: yes
 
-- name: Update Proxmox/Debian Servers
-  hosts: proxmox, debian
+- name: Update Proxmox Servers
+  hosts: proxmox
   tasks:
     - name: Run Updates
       apt:
