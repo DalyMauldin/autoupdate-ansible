@@ -9,11 +9,14 @@
   become: yes
   tasks:
     - name: Run Updates
-      ansible.builtin.debug:
-        var: ansible_facts
       apt:
         update_cache: yes
         upgrade: yes
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Check Conditional
+      ansible.builtin.debug:
+        var: ansible_facts
       when: ansible_facts['os_family'] == "Debian"
 
 - name: Update Proxmox Servers
@@ -23,10 +26,9 @@
       apt:
         update_cache: yes
         upgrade: yes
-
-- name: Print all availble facts
-  hosts: "*"
-  tasks:
-    - name: Print Stats
-      ansible.builtin.debug:
-        var: ansible_facts
+# - name: Print all availble facts
+#   hosts: "*"
+#   tasks:
+#     - name: Print Stats
+#       ansible.builtin.debug:
+#         var: ansible_facts
