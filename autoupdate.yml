@@ -14,7 +14,7 @@
         - ansible_facts['distribution'] != "Ubuntu"
       notify: updated
 
-- handler:
+- handlers:
     - name: updated
       debug:
         var: ansible_facts['hostname']
