@@ -4,4 +4,4 @@
   apt:
     update_cache: yes
     upgrade: yes
-  notify: updated
+  notify: ubuntu:updated
