@@ -15,4 +15,4 @@
   handlers:
     - name: Updated server
       debug:
-        msg: Updated {{ ansible_facts['hostname'].stdout }}
+        msg: Updated {{ ansible_facts['hostname'] }}
