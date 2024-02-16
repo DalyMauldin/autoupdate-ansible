@@ -1,8 +1,13 @@
 ---
-- name: Update Ubuntu Servers
-  hosts: ubuntu
+- name: Update Servers
+  hosts: all
   roles:
     - role: ubuntu
       when:
         - ansible_facts['os_family'] == "Debian"
-        - ansible_facts['distribution'] != "Ubuntu"
+        - ansible_facts['distribution'] == "Ubuntu"
+
+    - role: debian
+      when:
+        - ansible_facts['os_family'] == "Debian"
+        - ansible_facts['distribution'] == "Ubuntu"
