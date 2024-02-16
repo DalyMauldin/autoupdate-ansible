@@ -1,6 +1,0 @@
----
-- handlers:
-    - name: updated
-      debug:
-        var: ansible_facts['hostname']
-        msg: Updated
