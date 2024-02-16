@@ -17,7 +17,7 @@
     - name: Check Conditional
       ansible.builtin.debug:
         var: ansible_facts
-      when: ansible_facts['os_family'] == "Debian"
+      when: ansible_facts['distribution'] == "Debian"
 
 - name: Update Proxmox Servers
   hosts: proxmox
