@@ -13,6 +13,6 @@
         - ansible_facts['distribution'] != "Ubuntu"
 
 - handlers:
-    - name: updated
+    - name: Updated server
       debug:
         msg: Updated {{ ansible_facts['hostname'].stdout }}
