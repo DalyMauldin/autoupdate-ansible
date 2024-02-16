@@ -1,0 +1,6 @@
+---
+- name: Run Updates
+  apt:
+    update_cache: yes
+    upgrade: yes
+  notify: Servers Updated
