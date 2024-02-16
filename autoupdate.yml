@@ -6,8 +6,10 @@
       when:
         - ansible_facts['os_family'] == "Debian"
         - ansible_facts['distribution'] == "Ubuntu"
+      notify: updated
 
     - role: debian
       when:
         - ansible_facts['os_family'] == "Debian"
         - ansible_facts['distribution'] != "Ubuntu"
+      notify: updated
