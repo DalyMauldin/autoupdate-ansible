@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook ~/autoupdate.yml
+ansible-playbook ~/autoupdate-ansible/autoupdate.yml
