@@ -9,6 +9,8 @@
   become: yes
   tasks:
     - name: Run Updates
+      ansible.builtin.debug:
+        var: ansible_facts
       apt:
         update_cache: yes
         upgrade: yes
